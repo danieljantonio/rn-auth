@@ -15,7 +15,7 @@ export default function MainLayout() {
         <Stack.Screen name="login" options={{ headerShown: false }} />
         <Stack.Protected guard={isAuthenticated}>
           <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ title: 'Modal', presentation: 'modal' }} />
+          <Stack.Screen name="modal" options={{ title: 'Settings', presentation: 'modal' }} />
         </Stack.Protected>
       </Stack>
     </AuthProvider>

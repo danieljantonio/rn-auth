@@ -1,11 +1,10 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Drawer } from 'expo-router/drawer';
-
 import { HeaderButton } from '../../../components/HeaderButton';
-import { useAuth } from '~/hooks/useAuth';
 import CustomDrawerContent from '~/components/CustomDrawerContent';
+import { TouchableOpacity } from 'react-native';
+import { SettingsIcon } from 'lucide-react-native';
 
 const DrawerLayout = () => {
   return (
@@ -21,6 +20,13 @@ const DrawerLayout = () => {
           drawerItemStyle: {
             borderRadius: 10,
           },
+          headerRight: () => (
+            <Link href="/modal" asChild>
+              <TouchableOpacity>
+                <SettingsIcon size={24} color="gray" />
+              </TouchableOpacity>
+            </Link>
+          ),
         }}
       />
       <Drawer.Screen
@@ -31,11 +37,9 @@ const DrawerLayout = () => {
           drawerIcon: ({ size, color }) => (
             <MaterialIcons name="border-bottom" size={size} color={color} />
           ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <HeaderButton />
-            </Link>
-          ),
+          drawerItemStyle: {
+            borderRadius: 10,
+          },
         }}
       />
     </Drawer>
