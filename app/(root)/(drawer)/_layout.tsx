@@ -1,12 +1,15 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Drawer } from 'expo-router/drawer';
 
-import { HeaderButton } from '../../components/HeaderButton';
+import { HeaderButton } from '../../../components/HeaderButton';
+import { useAuth } from '~/hooks/useAuth';
+import CustomDrawerContent from '~/components/CustomDrawerContent';
 
 const DrawerLayout = () => {
   return (
-    <Drawer>
+    <Drawer drawerContent={CustomDrawerContent}>
       <Drawer.Screen
         name="index"
         options={{
@@ -15,6 +18,9 @@ const DrawerLayout = () => {
           drawerIcon: ({ size, color }) => (
             <Ionicons name="home-outline" size={size} color={color} />
           ),
+          drawerItemStyle: {
+            borderRadius: 10,
+          },
         }}
       />
       <Drawer.Screen

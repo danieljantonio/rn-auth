@@ -78,7 +78,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setIsAuthenticated(true);
 
       // Navigate to the main app
-      router.replace('/(drawer)');
+      router.replace('/(root)/(drawer)');
     } catch (error) {
       console.error('Login error:', error);
       throw error;
@@ -111,7 +111,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setIsAuthenticated(true);
 
       // Navigate to the main app
-      router.replace('/(drawer)');
+      router.replace('/(root)/(drawer)');
     } catch (error) {
       console.error('Registration error:', error);
       throw error;
@@ -123,6 +123,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   // Logout function
   const logout = async () => {
     try {
+      console.log('LOGOUT Start');
       setIsLoading(true);
 
       // Clear user data from storage
@@ -133,11 +134,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setIsAuthenticated(false);
 
       // Navigate to login
-      router.replace('/login');
+      router.replace('/(root)/login');
     } catch (error) {
       console.error('Logout error:', error);
       throw error;
     } finally {
+      console.log('LOGOUT DONE');
       setIsLoading(false);
     }
   };
