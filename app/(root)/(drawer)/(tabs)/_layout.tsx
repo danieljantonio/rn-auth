@@ -1,26 +1,26 @@
 import { Tabs } from 'expo-router';
-import { TabBarIcon } from '~/components/TabBarIcon';
+import { NewspaperIcon, Ticket } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
-
         tabBarActiveTintColor: 'black',
       }}>
       <Tabs.Screen
-        name="index"
+        name="(news)"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'News',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <NewspaperIcon size={24} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="(tickets)"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Tickets',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <Ticket size={24} color={color} />,
         }}
       />
     </Tabs>

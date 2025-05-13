@@ -13,8 +13,24 @@ type AuthContextType = {
   user: User | null;
   isLoading: boolean;
   isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, name?: string) => Promise<void>;
+  signIn: ({
+    email,
+    password,
+    name,
+  }: {
+    email: string;
+    password: string;
+    name?: string;
+  }) => Promise<void>;
+  signUp: ({
+    email,
+    password,
+    name,
+  }: {
+    email: string;
+    password: string;
+    name?: string;
+  }) => Promise<void>;
   logout: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
 };
@@ -54,7 +70,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   // Login function
-  const login = async (email: string, password: string) => {
+  const signIn = async ({
+    email,
+    password,
+    name,
+  }: {
+    email: string;
+    password: string;
+    name?: string;
+  }) => {
     try {
       console.log('login', email, password);
       setIsLoading(true);
@@ -67,7 +91,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const userData: User = {
         id: '1',
         email,
-        name: 'Demo User',
+        name: 'Daniel Antonio',
       };
 
       // Save user data to storage
@@ -87,8 +111,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
-  // Register function
-  const register = async (email: string, password: string, name?: string) => {
+  // signUp function
+  const signUp = async ({
+    email,
+    password,
+    name,
+  }: {
+    email: string;
+    password: string;
+    name?: string;
+  }) => {
     try {
       setIsLoading(true);
 
@@ -168,8 +200,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     user,
     isLoading,
     isAuthenticated,
-    login,
-    register,
+    signIn,
+    signUp,
     logout,
     resetPassword,
   };

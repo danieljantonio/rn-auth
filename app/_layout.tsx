@@ -6,12 +6,12 @@ import { AuthProvider } from '~/hooks/useAuth';
 
 export default function RootLayout() {
   return (
-    <AuthProvider>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <AuthProvider>
         <Stack>
           <Stack.Screen name="(root)" options={{ headerShown: false }} />
         </Stack>
-      </GestureHandlerRootView>
-    </AuthProvider>
+      </AuthProvider>
+    </GestureHandlerRootView>
   );
 }
