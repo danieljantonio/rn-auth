@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { View, Text, Pressable, SafeAreaView } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 
 export default function News() {
   return (

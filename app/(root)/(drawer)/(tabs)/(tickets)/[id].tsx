@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default function News() {
   return (
